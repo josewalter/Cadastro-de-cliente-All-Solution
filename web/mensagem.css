@@ -1,0 +1,13 @@
+/* 
+    Descrição  : CSS para melhorar a apresentação da pagina de sucesso ou erro.
+    Created on : 04/05/2019, 23:57:41
+    Author     : Walter
+*/
+h1{
+    font-size: 50px;
+    color: orangered;
+}
+body{
+    background-color: aqua;
+}
+

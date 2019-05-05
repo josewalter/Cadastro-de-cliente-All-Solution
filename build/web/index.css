@@ -1,0 +1,19 @@
+/* 
+    Created on : 05/05/2019, 10:17:14
+    Author     : Walter
+*/
+body{
+    background-color: aqua;
+}
+#cadCliente{
+    position: absolute;
+    left: 1%;
+    top: 23%;
+}
+#pesClientes{
+   position: absolute;
+    left: 1%;
+    top: 29%;
+}
+
+

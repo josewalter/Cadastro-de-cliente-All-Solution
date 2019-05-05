@@ -1,0 +1,37 @@
+/* 
+    Descrição : Aqui ficarão os CSS que será compartilhado pelas telas
+    Created on : 04/05/2019, 13:28:59
+    Author     : Walter
+*/
+body{
+    background-color: aqua;
+}
+#Titulo{
+    position: absolute;
+    top: 0%;
+    left: 40%;
+}
+
+#Pesquisar{
+    position: absolute;
+    bottom: 30%;
+    left: 70%;
+}
+#campos{
+    position: absolute;
+    top: 18%;
+    left: 40%;
+    background-color: ghostwhite;
+    border-color: #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-radius: 0px;
+    box-shadow: lightslategrey 0.5em 0.5em 0.5em 0.5em ;
+}
+#Botoes{
+    position: absolute;
+    top: 36%;
+    left: 47%;
+}
