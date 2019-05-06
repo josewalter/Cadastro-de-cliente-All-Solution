@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="layoutGeral.css"/>
     </head>
     <body>
-        <form id="cadCliente" action="./SalvaCliente">
+        <form id="cadCliente" action="./SalvarCliente">
         <%-- Fazendo a conexão com o banco de dados  --%>
         <%
           Conexao conn = new Conexao();

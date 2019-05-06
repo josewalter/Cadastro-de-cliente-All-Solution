@@ -1,8 +1,8 @@
-
 package br.com.allsolution.servlet;
 
 import br.com.allsolution.controller.Conexao;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,33 +19,32 @@ import javax.servlet.http.HttpServletResponse;
  * data: 04/05/2019  19:55
  * @author Walter
  */
-@WebServlet(name = "SalvaCliente", urlPatterns = {"/SalvaCliente"})
-public class SalvaCliente extends HttpServlet {
-    
-    Conexao conexao = new Conexao();
-    Connection resp;
+@WebServlet(name = "SalvarCliente", urlPatterns = {"/SalvarCliente"})
+public class SalvarCliente extends HttpServlet {
 
+    Conexao con = new Conexao();
+    Connection resp;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         // Variáveis para receber os dados da tela e salvar no banco.        
         String nome, email, endereco, telefone, resultado;
-                
+        
         nome      = request.getParameter("txtNome");
         email     = request.getParameter("txtEmail");
         endereco  = request.getParameter("txtEndereco");
         telefone  = request.getParameter("txtTelefone");
-        resultado = "Nenhum estado encontrado!";
+        resultado = "Nenhum cliente encontrado!";
         
-        //Fanzendo teste para saber se a conexão com o banco foi feita com sucesso e salvando os dados.
         try {
-            resp = conexao.conectaMySQL("db_tetra");
+            resp = con.conectaMySQL("db_tetra");
             if(resp != null){
-              conexao.ExcutaSql("SELECT * FROM tbl_cliente WHERE cli_email = '" + email + "'");
-              if(conexao.rs.first()){
-                 PreparedStatement pst = resp.prepareStatement("INSERT INTO tbl_cliente (cli_nome,"
-                      + "cli_email, cli_endereco, cli_telefone) VALUES (?,?,?,?)");
+               con.ExcutaSql("SELECT * FROM tbl_cliente WHERE cli_telefone = '" + telefone + "'");
+               if(!con.rs.first()){
+                 PreparedStatement pst = resp.prepareStatement("INSERT INTO tbl_cliente (cli_nome, cli_email,"
+                         + " cli_endereco, cli_telefone) VALUES (?,?,?,?)");
                   pst.setString(1, nome);
                   pst.setString(2, email);
                   pst.setString(3, endereco);
@@ -53,11 +52,24 @@ public class SalvaCliente extends HttpServlet {
                   pst.execute();
                   response.sendRedirect("sucessoCadastroCliente.jsp");
               }else{
-                response.sendRedirect("falhaCadastroCliente.jsp");
+                resultado = con.rs.getString("cli_telefone");
               }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SalvaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SalvarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                     
+        try (PrintWriter out = response.getWriter()) {
+           
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SalvarCliente</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SalvarCliente at " + resultado + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

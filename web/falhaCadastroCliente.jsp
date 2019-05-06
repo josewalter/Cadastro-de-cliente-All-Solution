@@ -15,5 +15,6 @@
     <body>
         <center>
             <h1>ERRO AO REALIZAR O CADASTRO DO CLIENTE!!!</h1>
+            <input type="submit" accept="PaginaPrincipal.jsp">// Botão para retornar a pagina principal.
         </center>
     </body>
