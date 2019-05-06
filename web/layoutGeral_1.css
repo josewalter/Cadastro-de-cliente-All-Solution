@@ -35,3 +35,8 @@ body{
     top: 36%;
     left: 47%;
 }
+#table{
+    position: absolute;
+    top: 50%;
+    left: 40%
+}

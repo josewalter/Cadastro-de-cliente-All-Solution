@@ -30,12 +30,12 @@ public class SalvaCliente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         // Variáveis para receber os dados da tela e salvar no banco.        
-        String nome,email, endereco, telefone, resultado;
+        String nome, email, endereco, telefone, resultado;
                 
-        nome     = request.getParameter("txtNome");
-        email    = request.getParameter("txtEmail");
-        endereco = request.getParameter("txtEndereco");
-        telefone = request.getParameter("txtTelefone");
+        nome      = request.getParameter("txtNome");
+        email     = request.getParameter("txtEmail");
+        endereco  = request.getParameter("txtEndereco");
+        telefone  = request.getParameter("txtTelefone");
         resultado = "Nenhum estado encontrado!";
         
         //Fanzendo teste para saber se a conexão com o banco foi feita com sucesso e salvando os dados.
@@ -45,7 +45,7 @@ public class SalvaCliente extends HttpServlet {
               conexao.ExcutaSql("SELECT * FROM tbl_cliente WHERE cli_email = '" + email + "'");
               if(conexao.rs.first()){
                  PreparedStatement pst = resp.prepareStatement("INSERT INTO tbl_cliente (cli_nome,"
-                      + "cli_email, cli_endereco, cli_telefone) VALUES (?,?,?,?");
+                      + "cli_email, cli_endereco, cli_telefone) VALUES (?,?,?,?)");
                   pst.setString(1, nome);
                   pst.setString(2, email);
                   pst.setString(3, endereco);

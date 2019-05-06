@@ -51,6 +51,20 @@
                 <div id="Botoes">
                     <input type="submit" value="Pesquisar" name="btnPesquisar" id="btnPesquisar"/>        
                 </div>
+                <div id="table">
+                    <table border = "2">
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </table>
+                </div>
             </center>
         </form>    
     </body>

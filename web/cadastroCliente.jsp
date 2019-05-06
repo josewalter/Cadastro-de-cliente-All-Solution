@@ -33,8 +33,8 @@
             <center><h3> Insira os dados do cliente </h3></center>
             <%-- Campos para inserção de dados pelo usuário  --%>
             <div id="campos">
-                Nome :<input type="text" name="txtNome" value="" id="txtNome"/><br><br>
-                E-mail: <input type="text" name="txtEmail" value="" id="txtEmail"/><br><br>
+                Nome    : <input type="text" name="txtNome"     value="" id="txtNome"/><br><br>
+                E-mail  : <input type="text" name="txtEmail"    value="" id="txtEmail"/><br><br>
                 Endereço: <input type="text" name="txtEndereco" value="" id="txtEndereco"/><br><br>
                 Telefone: <input type="text" name="txtTelefone" value="" id="txtTelefone"/><br><br>                
           
